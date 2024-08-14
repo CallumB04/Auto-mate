@@ -8,4 +8,5 @@ A Discord moderation bot created with the Discord.py library.
 ## Bot functions
 ![image](https://github.com/user-attachments/assets/63cd174c-34cb-4891-a919-dfa3bfb1dc86)
 ![image](https://github.com/user-attachments/assets/be8d5a77-8554-4bce-97b5-535302cc0572)
+*Example of the command 'banword' in use.*
 ![image](https://github.com/user-attachments/assets/2cc5a6c7-ecbc-42a3-88dd-93fb5290ad18)

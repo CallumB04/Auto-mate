@@ -1,0 +1,8 @@
+services:
+  auto-mate:
+    build:
+      context: .
+      Dockerfile: Dockerfile
+    environment:
+      - TOKEN=<put token here>
+      

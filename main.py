@@ -6,12 +6,12 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import json
+import os
 from bot import bot
 from events import *
 from guilds import *
 from levelling_system import *
 from leaderboards import *
-from setup import *
 
 ## Bot command - deletes a specified amount of messages from the certain channel
 @bot.command()
@@ -76,14 +76,8 @@ async def destruct(ctx):
     else:
         await ctx.channel.send(f"Only the owner can use this command! <@{ctx.message.author.id}>")
 
-## Runs the tkinter setup window
-setup()
 
-## Obtains the bot's secret token from the json file
-## Prevents the token being in the main code file, allowing for the code to be open source
-with open("./data/botinfo.json", "r") as f:
-    bot_info = json.load(f)
-    TOKEN = bot_info["token"]
+TOKEN = os.getenv("TOKEN")
 
 ## Activates the bot, using its unique token
 bot.run(TOKEN)

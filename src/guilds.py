@@ -8,7 +8,7 @@ from bot import bot
 
 ## Creates a user account in the database for any new users
 async def update_guilds(guilds, guildid):
-    if not guildid in guilds:
+    if not guildid in guilds.keys():
         guilds[guildid] = {}
         guilds[guildid]["role_join"] = ""
         guilds[guildid]["role_levels"] = {5: "", 10: "", 20: ""}

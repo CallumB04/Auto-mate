@@ -35,3 +35,19 @@ async def on_ready():
             game = discord.Game(f"{brain_emoji} Automating {guild_count} Servers!")
 
         await bot.change_presence(status=status_mode, activity=game)
+    
+    ## Adding any new guilds to guilds.json since bot was last online
+    with open("./data/guilds.json", "r") as f:
+        guilds = json.load(f)
+
+        for guild in bot.guilds:
+            if not str(guild.id) in guilds.keys():
+                guilds[str(guild.id)] = {}
+                guilds[str(guild.id)]["role_join"] = ""
+                guilds[str(guild.id)]["role_levels"] = {5: "", 10: "", 20: ""}
+                guilds[str(guild.id)]["channel_levels"] = ""
+                guilds[str(guild.id)]["channel_welcomes"] = ""
+                guilds[str(guild.id)]["word_list"] = []
+
+    with open("./data/guilds.json", "w") as f:
+        json.dump(guilds, f)
